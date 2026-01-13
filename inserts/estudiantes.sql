@@ -1,0 +1,3 @@
+INSERT OR IGNORE INTO estudiantes (ci, apellidos, nombres, grado, primer_trimestre, segundo_trimestre, tercer_trimestre, promedio_anual) VALUES ('12345678','ESPINOZA TICONA','JUAN CARLOS','1ro F',75,75,75,75);
+INSERT OR IGNORE INTO estudiantes (ci, apellidos, nombres, grado, primer_trimestre, segundo_trimestre, tercer_trimestre, promedio_anual) VALUES ('23456789','GARCIA QUISPE','LUIS ALBERTO','2do A',80,85,82,82);
+INSERT OR IGNORE INTO estudiantes (ci, apellidos, nombres, grado, primer_trimestre, segundo_trimestre, tercer_trimestre, promedio_anual) VALUES ('34567890','MENDOZA FLORES','CARLA FERNANDA','3ro B',90,88,92,90);

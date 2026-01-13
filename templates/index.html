@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Búsqueda de Estudiantes - Sistema de Boletines{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h4 mb-0">Consulta de Boletín de Calificaciones</h2>
+            </div>
+            <div class="card-body">
+                {% if error %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ error }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                </div>
+                {% endif %}
+
+                <div class="text-center mb-4">
+                    <p class="lead">Ingrese el número de CI del estudiante para consultar su boletín de calificaciones.</p>
+                </div>
+
+                <form action="{{ url_for('buscar') }}" method="post">
+                    <div class="mb-3">
+                        <label for="ci" class="form-label">Cédula de Identidad (CI):</label>
+                        <input type="text" class="form-control form-control-lg" id="ci" name="ci" placeholder="Ej: 12345678" required />
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">Buscar Estudiante</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

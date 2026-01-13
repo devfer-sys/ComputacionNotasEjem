@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.school-logo-print {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #800020; /* borde en tono vino como antes */
+  background-color: white;
+  display: block; /* Para que la imagen no tenga espacio abajo */
+}
+
+
+.student-photo-print {
+  width: 100px;
+  height: 120px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  color: #666;
+}
+
+.signature-line {
+  border-bottom: 1px solid #000;
+  width: 80%;
+  margin: 50px auto 10px;
+}
+
+/* Print-specific styles */
+@media print {
+  .container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .card {
+    border: none !important;
+  }
+
+  .card-body {
+    padding: 0;
+  }
+
+  table {
+    width: 100%;
+  }
+}

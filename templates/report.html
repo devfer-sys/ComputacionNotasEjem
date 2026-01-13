@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Boletín de {{ estudiante.apellidos }} {{ estudiante.nombres }} - Sistema de Boletines{% endblock %}
+
+{% block content %}
+<div class="card shadow mb-4">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <h2 class="h4 mb-0">Boletín de Calificaciones</h2>
+        <a href="{{ url_for('mostrar_boletin', ci=estudiante.ci) }}" class="btn btn-light" target="_blank">
+            <i class="bi bi-printer"></i> Visualizar Boletín
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <h3 class="h5">Información del Estudiante</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="bg-light" width="30%">Nombre Completo:</th>
+                        <td>{{ estudiante.nombres }} {{ estudiante.apellidos }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-light">CI:</th>
+                        <td>{{ estudiante.ci }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-light">Grado:</th>
+                        <td>{{ estudiante.grado }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h3 class="h5 mb-3">Resumen de Calificaciones</h3>
+        <table class="table table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th>Trimestre</th>
+                    <th class="text-center">Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Primer Trimestre</td>
+                    <td class="text-center">{{ estudiante.primer_trimestre if estudiante.primer_trimestre is not none else '' }}</td>
+                </tr>
+                <tr>
+                    <td>Segundo Trimestre</td>
+                    <td class="text-center">{{ estudiante.segundo_trimestre if estudiante.segundo_trimestre is not none else '' }}</td>
+                </tr>
+                <tr>
+                    <td>Tercer Trimestre</td>
+                    <td class="text-center">{{ estudiante.tercer_trimestre if estudiante.tercer_trimestre is not none else '' }}</td>
+                </tr>
+            </tbody>
+            <tfoot class="table-light">
+                <tr>
+                    <th>Promedio Anual</th>
+                    <th class="text-center">{{ estudiante.promedio_anual if estudiante.promedio_anual is not none else '' }}</th>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="alert alert-info mt-4">
+            <strong>Nota:</strong> Las calificaciones del segundo y tercer trimestre estarán disponibles cuando se ingresen en el sistema.
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-3">
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Volver a la búsqueda
+    </a>
+</div>
+{% endblock %}
